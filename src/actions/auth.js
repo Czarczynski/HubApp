@@ -38,6 +38,7 @@ export const loadUser = () => (dispatch, getState) => {
 
 // LOGIN USER
 export const login = (username, password) => (dispatch) => {
+  dispatch({type: USER_LOADING});
   // Headers
   const config = {
     headers: {
@@ -67,6 +68,7 @@ export const login = (username, password) => (dispatch) => {
 
 // REGISTER USER
 export const register = ({username, password, email}) => (dispatch) => {
+  dispatch({type: USER_LOADING});
   // Headers
   const config = {
     headers: {
@@ -84,6 +86,7 @@ export const register = ({username, password, email}) => (dispatch) => {
         type: REGISTER_SUCCESS,
         payload: res.data,
       });
+      dispatch(createMessage({registered: 'Registered successfully'}));
     })
     .catch((err) => {
       if (err.response == undefined || err.response.status === 404)

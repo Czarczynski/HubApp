@@ -37,8 +37,12 @@ class Dashboard extends Component {
 
   render() {
     const {user} = this.props.auth;
-    const notActivated = this.props.reservations.filter((item) => !item.active);
-    const activated = this.props.reservations.filter((item) => item.active);
+    const notActivated = this.props.reservations.filter(
+      (item) => !item.active && item.owner == user.id,
+    );
+    const activated = this.props.reservations.filter(
+      (item) => item.active && item.owner == user.id,
+    );
     return (
       <View style={styles.view}>
         <ScrollView style={styles.container}>

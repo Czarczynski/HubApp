@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {register} from '../actions/auth';
+import PropTypes from 'prop-types';
 import {
   SafeAreaView,
   Text,
@@ -17,6 +18,7 @@ import {BG_COLOR, MAIN_COLOR, ERROR_RED, SMOKE_WHITE} from '../common/config';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faEnvelope, faLock, faUser} from '@fortawesome/free-solid-svg-icons';
 import styles from '../assets/styles/formStyles';
+import {Circle} from 'react-native-progress';
 class LoginPage extends Component {
   state = {
     email: '',
@@ -25,6 +27,13 @@ class LoginPage extends Component {
     password: '',
     error: '',
   };
+  static propTypes = {
+    auth: PropTypes.any,
+  };
+
+  componentDidUpdate() {
+    if (this.props.auth.isRegistered) this.props.navigation.replace('Login');
+  }
 
   handleSubmit = () => {
     if (
@@ -39,13 +48,6 @@ class LoginPage extends Component {
         this.setState({error: 'Passwords are different'});
       else {
         this.props.register(this.state);
-        this.setState({
-          error: '',
-          username: '',
-          password: '',
-          email: '',
-          password2: '',
-        });
       }
     }
   };
@@ -186,5 +188,5 @@ class LoginPage extends Component {
     );
   }
 }
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({auth: state.auth});
 export default connect(mapStateToProps, {register})(LoginPage);

@@ -16,6 +16,7 @@ const initialState = {
   isAuthenticated: null,
   isLoading: false,
   user: null,
+  isRegistered: false,
 };
 
 export default function (state = initialState, action) {
@@ -24,6 +25,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         isLoading: true,
+        isRegistered: false,
       };
     case USER_LOADED:
       return {
@@ -31,15 +33,24 @@ export default function (state = initialState, action) {
         isAuthenticated: true,
         isLoading: false,
         user: action.payload,
+        isRegistered: false,
       };
     case LOGIN_SUCCESS:
-    case REGISTER_SUCCESS:
       AsyncStorage.setItem('token', action.payload.token);
       return {
         ...state,
         ...action.payload,
         isAuthenticated: true,
         isLoading: false,
+        isRegistered: false,
+      };
+    case REGISTER_SUCCESS:
+      AsyncStorage.setItem('token', action.payload.token);
+      return {
+        ...state,
+        isAuthenticated: false,
+        isLoading: false,
+        isRegistered: true,
       };
     case AUTH_ERROR:
     case LOGIN_FAIL:
@@ -49,9 +60,9 @@ export default function (state = initialState, action) {
       return {
         ...state,
         token: null,
-        user: null,
         isAuthenticated: false,
         isLoading: false,
+        isRegistered: false,
       };
     default:
       return state;

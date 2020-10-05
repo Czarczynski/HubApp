@@ -17,7 +17,6 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useTheme} from '@react-navigation/native';
 
 function Header({title, navigation, logout, exit}) {
-  const {colors} = useTheme();
   const logoutSubmit = () =>
     Alert.alert('Do you want to exit?', '', [
       {text: 'No', style: 'cancel'},

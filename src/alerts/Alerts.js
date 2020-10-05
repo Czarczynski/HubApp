@@ -58,6 +58,8 @@ class Alerts extends Component {
     if (message !== prevProps.message) {
       if (message.invalidDate)
         Snackbar.show({text: message.invalidDate, textColor: ERROR_RED});
+      if (message.registered)
+        Snackbar.show({text: message.registered, textColor: 'green'});
       if (message.reservationAdded)
         Snackbar.show({text: message.reservationAdded, textColor: 'green'});
       if (message.reservationDeleted)

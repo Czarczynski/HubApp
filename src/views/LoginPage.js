@@ -9,6 +9,7 @@ import {
   TextInput,
   KeyboardAvoidingView,
 } from 'react-native';
+import {Circle} from 'react-native-progress';
 import {connect} from 'react-redux';
 import {BG_COLOR, MAIN_COLOR} from '../common/config';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
@@ -48,6 +49,18 @@ class LoginPage extends Component {
       this.props.navigation.replace('Dashboard');
   }
   render() {
+    if (this.props.auth.isLoading)
+      return (
+        <View
+          style={{
+            flex: 1,
+            backgroundColor: BG_COLOR,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <Circle size={30} indeterminate={true} color={MAIN_COLOR} />
+        </View>
+      );
     return (
       <KeyboardAvoidingView
         style={{flex: 1}}
