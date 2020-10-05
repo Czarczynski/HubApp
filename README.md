@@ -36,9 +36,10 @@ Najpierw nalezy zainstalować node.js -> https://nodejs.org/en/download/ <br />
  ```
 
 # Widoki aplikacji
-<img src="https://github.com/Czarczynski/HubApp/blob/main/gitScreens/logowanie.png" height=300 />
-<img src="https://github.com/Czarczynski/HubApp/blob/main/gitScreens/rejestracja.png" height=300 />
-<img src="https://github.com/Czarczynski/HubApp/blob/main/gitScreens/dashboard.png" height=300 />
-<img src="https://github.com/Czarczynski/HubApp/blob/main/gitScreens/nowa%20rezerwacja.png" height=300 />
-<img src="https://github.com/Czarczynski/HubApp/blob/main/gitScreens/oddawanie%20rezerwacji.png" height=300 />
-<img src="https://github.com/Czarczynski/HubApp/blob/main/gitScreens/wyloguj%20popup.png" height=300 />
+<h3> Film prezentujący aplikację znajduje się <a href="https://github.com/Czarczynski/HubApp/blob/main/gitScreens/record.mov?raw=true" > tutaj </a></h3><br />
+<img src="https://github.com/Czarczynski/HubApp/blob/main/gitScreens/logowanie.png" height=600 />
+<img src="https://github.com/Czarczynski/HubApp/blob/main/gitScreens/rejestracja.png" height=600 />
+<img src="https://github.com/Czarczynski/HubApp/blob/main/gitScreens/dashboard.png" height=600 />
+<img src="https://github.com/Czarczynski/HubApp/blob/main/gitScreens/nowa%20rezerwacja.png" height=600 />
+<img src="https://github.com/Czarczynski/HubApp/blob/main/gitScreens/oddawanie%20rezerwacji.png" height=600 />
+<img src="https://github.com/Czarczynski/HubApp/blob/main/gitScreens/wyloguj%20popup.png" height=600 />
