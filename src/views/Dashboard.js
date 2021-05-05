@@ -26,6 +26,7 @@ class Dashboard extends Component {
   componentDidMount() {
     this.props.getReservations();
   }
+
   componentDidUpdate() {
     if (!this.props.auth.isAuthenticated)
       this.props.navigation.replace('Login');

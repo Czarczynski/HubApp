@@ -13,6 +13,7 @@ import {
   TextInput,
   Keyboard,
   Dimensions,
+  Platform,
 } from 'react-native';
 import {connect} from 'react-redux';
 import {createMessage} from '../actions/messages';
@@ -26,6 +27,7 @@ import {
   SMOKE_WHITE,
   TEXT_COLOR,
 } from '../common/config';
+
 class PopUpForm extends Component {
   state = {
     car: this.props.item.car,
@@ -55,6 +57,7 @@ class PopUpForm extends Component {
     this.props.deleteReservations(this.props.item.id);
     this.props.dismiss();
   };
+
   render() {
     const {children, visible, createMessage} = this.props;
     return (
@@ -79,7 +82,7 @@ class PopUpForm extends Component {
                 justifyContent: 'center',
                 width: Dimensions.get('window').width * 0.7,
               }}
-              behavior={Platform.OS == 'ios' ? 'padding' : 'height'}>
+              behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
               <ScrollView
                 style={styles.content}
                 ref={(c) => {
@@ -160,6 +163,7 @@ class PopUpForm extends Component {
     );
   }
 }
+
 const styles = StyleSheet.create({
   centeredView: {
     justifyContent: 'center',

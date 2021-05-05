@@ -1,7 +1,7 @@
-import { ADD_ARCHIVE, GET_ARCHIVE } from "../actions/types";
+import {ADD_ARCHIVE, GET_ARCHIVE} from '../actions/types';
 
 const initialState = {
-  archive: []
+  archive: [],
 };
 
 export default function(state = initialState, action) {
@@ -9,12 +9,12 @@ export default function(state = initialState, action) {
     case GET_ARCHIVE:
       return {
         ...state,
-        archive: action.payload
+        archive: action.payload,
       };
     case ADD_ARCHIVE:
       return {
         ...state,
-        archive: [...state.archive, action.payload]
+        archive: [...state.archive, action.payload],
       };
     default:
       return state;

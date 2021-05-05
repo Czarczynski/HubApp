@@ -19,6 +19,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faEnvelope, faLock, faUser} from '@fortawesome/free-solid-svg-icons';
 import styles from '../assets/styles/formStyles';
 import {Circle} from 'react-native-progress';
+
 class LoginPage extends Component {
   state = {
     email: '',
@@ -51,6 +52,7 @@ class LoginPage extends Component {
       }
     }
   };
+
   render() {
     return (
       <KeyboardAvoidingView
@@ -188,5 +190,6 @@ class LoginPage extends Component {
     );
   }
 }
+
 const mapStateToProps = (state) => ({auth: state.auth});
 export default connect(mapStateToProps, {register})(LoginPage);

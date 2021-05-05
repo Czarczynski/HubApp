@@ -1,20 +1,12 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  Button,
-  View,
-  Alert,
-} from 'react-native';
+import {SafeAreaView, StyleSheet, Text, View, Alert} from 'react-native';
 
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faArrowLeft, faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
 import {connect} from 'react-redux';
 import {logout} from '../actions/auth';
-import {BG_COLOR, TEXT_COLOR, SMOKE_WHITE} from '../common/config';
+import {BG_COLOR, TEXT_COLOR} from '../common/config';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {useTheme} from '@react-navigation/native';
 
 function Header({title, navigation, logout, exit}) {
   const logoutSubmit = () =>
@@ -29,7 +21,7 @@ function Header({title, navigation, logout, exit}) {
           <FontAwesomeIcon style={styles.arrow} icon={faArrowLeft} size={25} />
         </TouchableOpacity>
       ) : (
-        <View style={styles.placeholder}></View>
+        <View style={styles.placeholder} />
       )}
       <View>
         <Text style={styles.title}>{title}</Text>
@@ -39,7 +31,7 @@ function Header({title, navigation, logout, exit}) {
           <FontAwesomeIcon style={styles.arrow} icon={faSignOutAlt} size={25} />
         </TouchableOpacity>
       ) : (
-        <View style={styles.placeholder}></View>
+        <View style={styles.placeholder} />
       )}
     </SafeAreaView>
   );

@@ -102,6 +102,7 @@ class FormModal extends Component {
         });
     }
   };
+
   onDateChange(date, type) {
     if (type === 'END_DATE') {
       this.setState(
@@ -120,6 +121,7 @@ class FormModal extends Component {
       );
     }
   }
+
   goToInput = () => {
     this.input.scrollTo({
       x: 0,

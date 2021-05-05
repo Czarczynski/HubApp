@@ -6,6 +6,7 @@ import {createMessage} from '../actions/messages';
 import {MAIN_COLOR, SMOKE_WHITE} from '../common/config';
 import {useState} from 'react/cjs/react.development';
 import PopUpForm from './PopUpForm';
+
 function Card({reservation, user, addRental, createMessage, activated}) {
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -57,8 +58,8 @@ function Card({reservation, user, addRental, createMessage, activated}) {
               user.id == reservation.owner
                 ? addRental(reservation.id)
                 : createMessage({
-                    wrongUser: "You can't rent other people's reservations.",
-                  })
+                  wrongUser: 'You can\'t rent other people\'s reservations.',
+                })
             }
             className="btn-success btn-sm btn"
             title="Rent"

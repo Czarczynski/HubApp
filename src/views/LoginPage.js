@@ -44,10 +44,12 @@ class LoginPage extends Component {
       });
     }
   };
+
   componentDidUpdate() {
     if (this.props.auth.isAuthenticated)
       this.props.navigation.replace('Dashboard');
   }
+
   render() {
     if (this.props.auth.isLoading)
       return (

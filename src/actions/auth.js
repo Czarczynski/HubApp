@@ -27,8 +27,9 @@ export const loadUser = () => (dispatch, getState) => {
       });
     })
     .catch((err) => {
-      if (err.response.data == undefined || err.response.status === 404)
+      if (err.response.data === undefined || err.response.status === 404) {
         dispatch(returnErrors({no_internet: err.message}, 500));
+      }
       dispatch(returnErrors(err.response.data, err.response.status));
       dispatch({
         type: AUTH_ERROR,
@@ -57,9 +58,11 @@ export const login = (username, password) => (dispatch) => {
       });
     })
     .catch((err) => {
-      if (err.response == undefined || err.response.status === 404)
+      if (err.response === undefined || err.response.status === 404) {
         dispatch(returnErrors({no_internet: err.message}, 500));
-      else dispatch(returnErrors(err.response.data, err.response.status));
+      } else {
+        dispatch(returnErrors(err.response.data, err.response.status));
+      }
       dispatch({
         type: LOGIN_FAIL,
       });
@@ -89,8 +92,9 @@ export const register = ({username, password, email}) => (dispatch) => {
       dispatch(createMessage({registered: 'Registered successfully'}));
     })
     .catch((err) => {
-      if (err.response == undefined || err.response.status === 404)
+      if (err.response == undefined || err.response.status === 404) {
         dispatch(returnErrors({no_internet: err.message}, 500));
+      }
       dispatch(returnErrors(err.response.data, err.response.status));
       dispatch({
         type: REGISTER_FAIL,
@@ -109,8 +113,9 @@ export const logout = () => (dispatch, getState) => {
       });
     })
     .catch((err) => {
-      if (err.response == undefined || err.response.status === 404)
+      if (err.response == undefined || err.response.status === 404) {
         dispatch(returnErrors({no_internet: err.message}, 500));
+      }
       dispatch(returnErrors(err.response.data, err.response.status));
     });
 };
@@ -129,7 +134,7 @@ export const tokenConfig = (getState) => {
 
   // If token, add to headers config
   if (token) {
-    config.headers['Authorization'] = `Token ${token}`;
+    config.headers.Authorization = `Token ${token}`;
   }
 
   return config;
