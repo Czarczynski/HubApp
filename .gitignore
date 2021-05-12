@@ -103,3 +103,8 @@ dist
 # TernJS port file
 .tern-port
 ios/Pods/.DS_Store
+android/local.properties
+src/.DS_Store
+android/local.properties
+src/.DS_Store
+android/local.properties
